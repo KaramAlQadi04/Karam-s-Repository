@@ -1,0 +1,90 @@
+import turtle
+
+def draw_table(length , color):
+    # Record the starting position and heading
+    start_pos = turtle.pos()
+    start_heading = turtle.heading()
+    turtle.goto(-200, -150)
+    # Drawing the top of the table
+    turtle.color(color)
+    turtle.begin_fill()
+    turtle.forward(length)
+    turtle.right(90)
+    turtle.forward(20)
+    turtle.right(90)
+    turtle.forward(length)
+    turtle.right(90)
+    turtle.forward(20)
+    turtle.right(90)
+    turtle.end_fill()
+
+    # drawing the table legs (Left Side)
+    turtle.color(color)
+    turtle.begin_fill()
+    turtle.right(90)
+    turtle.forward(130)
+    turtle.left(90)
+    turtle.forward(20)
+    turtle.left(90)
+    turtle.forward(130)
+    turtle.end_fill()
+
+    turtle.right(90)
+    turtle.forward(20)
+
+    turtle.begin_fill()
+    turtle.right(90)
+    turtle.forward(90)
+    turtle.left(90)
+    turtle.forward(20)
+    turtle.left(90)
+    turtle.forward(90)
+    turtle.end_fill()
+
+    #Drawing the table legs (Right Side)
+    turtle.right(90)
+    turtle.forward(length - 60)
+
+    turtle.begin_fill()
+    turtle.right(90)
+    turtle.forward(130)
+    turtle.right(90)
+    turtle.forward(20)
+    turtle.right(90)
+    turtle.forward(130)
+    turtle.end_fill()
+
+    turtle.left(90)
+    turtle.forward(20)
+
+    turtle.begin_fill()
+    turtle.left(90)
+    turtle.forward(90)
+    turtle.right(90)
+    turtle.forward(20)
+    turtle.right(90)
+    turtle.forward(90)
+    turtle.end_fill()
+
+# Return to the starting position and heading
+    turtle.penup()
+    turtle.goto(start_pos)
+    turtle.setheading(start_heading)
+
+
+# Main program
+if __name__ == "__main__":
+    turtle.speed(6)
+    turtle.penup()
+    turtle.goto(-200, -150)
+
+    # Asking user for input
+    turtle.getscreen().bgcolor(turtle.textinput("background color" , "Please enter the background color of the canvas"))
+    length = int(turtle.textinput("length", "Please enter the length of the table"))
+    table_color = turtle.textinput("table color" , "Please enter the color of the table")
+
+    # Drawing the table
+    draw_table(length , table_color)
+
+    # Closing the turtle graphics window on click
+    turtle.done()
